@@ -12,8 +12,14 @@ form.addEventListener('submit', function (e) {
   if (input.value == "" || input.value == null) {
     alert("please enter the city please !");
   } else {
-      searchWeather(input.value);          
-      form.reset();
+      if(!weatherImage.lastElementChild.classList.contains('result')) {
+        searchWeather(input.value);          
+        form.reset();
+      } else {
+        weatherImage.removeChild(weatherImage.lastElementChild);
+        searchWeather(input.value);          
+        form.reset();
+      }
     }
 })
 
@@ -33,9 +39,9 @@ function getInfo(a) {
   resultDiv.innerHTML="<p class='city_name'>"+a.name+"</p>"+
                         "<h1 class='city_temp'><sub>"+Math.floor(a.main.temp)+"</sub><sup>C</sup></h1>"+
                         "<p class='city_main'>"+a.weather[0].main+"</p>"; 
-                                                 
+
     weatherImage.appendChild(resultDiv);
-    form.classList.add('disabled-btn');   
+    // form.classList.add('disabled-btn');   
 }
 
 //for the error message
