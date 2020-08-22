@@ -32,8 +32,8 @@ function getInfo(a) {
   resultDiv.setAttribute('class','result');
   resultDiv.innerHTML="<p class='city_name'>"+a.name+"</p>"+
                         "<h1 class='city_temp'><sub>"+Math.floor(a.main.temp)+"</sub><sup>C</sup></h1>"+
-                        "<p class='city_main'>"+a.weather[0].main+"</p>";
-                           
+                        "<p class='city_main'>"+a.weather[0].main+"</p>"; 
+                                                 
     weatherImage.appendChild(resultDiv);
     form.classList.add('disabled-btn');   
 }
